@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\newtheorem{theorem}{定理}
+\newtheorem{example}{例}
+\newtheorem{definition}{定义}
+\newtheorem{lemma}{引理}
+\newtheorem{proposition}{命题}
+\newtheorem{corollary}{推论}
+\newtheorem{proof}{证明}
+\newtheorem{remark}{注记}
+\usepackage{amsmath}
+\usepackage{yfonts}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{ltxtable}
+\usepackage{diagbox}
+\usepackage{amstext}%公式中加入文字
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{epigraph}
+\usepackage{amssymb,dsfont}
+\usepackage{amsbsy}
+\usepackage{enumerate}
+\usepackage{flowchart}
+\title{$l$空间，$l$群和$l$层}
+\author{DZY}
+\date{April 2021}
+
+\begin{document}
+\maketitle
+\section{$l$空间，$l$群和$l$层的分布}
+\subsection{$l$空间和$l$群}
+对于拓扑空间$X$，如果其为Hausdorff的，局部紧的，零维的，则称之为$l$空间。即为对于拓扑空间$X$中的每一个点的基础系有开紧领域。同样对于拓扑群$G$，称之为$l$群，如果其单位元$e$的领域基础系中包含开紧子群。
+自然如果一个拓扑群是$l$群当且仅当是一个$l$空间。
+
+对于这样的定义，给出例子，$\mathfrak{P}$-adic 李群是一个$l$群，对于$\mathfrak{P}$-adic解析群的一般性的结构，它的开子群都是与$\mathbb{Z}_{p^{n}}$同态。
+
+在证明关于$l$空间和$l$群的核心结论前，先给出相应的引理。
+remark
+这些引理基本的展示了$l$空间的基本结构，在接下来进一步应用
+\begin{lemma}
+$X$是一个$l$空间，$Y\subset X$是一个局部闭的子集。则$Y$是赋诱导拓扑的$l$空间。
+\end{lemma}
+\begin{proof}
+选取一个$a\in A$的开邻域$U$，从而$U\bigcap A$在局部闭集子集的定义下，$U\bigcap A$在$Y$上构成一组诱导拓扑基。
+\end{proof}
+\begin{lemma}
+$K$是$l$空间中的一个紧子集，则任意$K$的由$X$中的开集的覆盖都有有限加细覆盖，其中覆盖使用$X$中成对的不相交的开紧集。
+
+对于这个引理中的有限性，通过Heine-Borel 定理得出。
+\end{lemma}
+\begin{proposition}
+    $G$是一个$l$群，并且$H$是$G$的一个闭子群。我们进一步在$H\ G$上引入商拓扑（$U$在$H\ G$是开的$\Rightleftarrow$ $P^{-1}(U)$在$G$中为开的，其中$p:G\rightarrow H\ G$为自然投射。），则商群$H\ G$在商拓扑下是一个$l$空间，并且$p$是一个连续的开映射。
+\end{proposition}
+在证明这个命题前，我们给出来图的定义和与图相关的几个引理：
+\begin{definition}
+有$l$群$G$和$l$空间X，进而给定$l$群$G$到$l$空间$X$的群作用$\gamma:G\times X\rightarrow X$，对于这个群作用的图定义为一个乘积空间$X\tiems
+ X$的子集：
+\end{definition}
+ $$R^{\gamma}_{X}=\{(x,\gamma(g)x|x\in X, g\in G\}\subset X\times X$$
+ 其中子集$\gamma(G)x\subset X$是$x\in X$的一个轨道。我们记$X/ G$为$X$中所有$G$-轨道的集合。同样可以有自然投射：$p:X\rightarrow X/G$。我们通常认为$X/G$上赋有商拓扑（$U\subset X/G$是开集当且仅当$p^{-1}$在$X$中是开集）。显然在这样定义商拓扑的前提下，$p$是连续映射。注意，在这里我们没有必要要求商空间$X/G$是Hausdorff的。
+ 对于一个$l$群$G$到$l$空间$X$的群作用$\gamma:G\times X\rightarrow X$，称之为一般的，如果满足图$R^{\gamma}_{X}$在$X\times X$上是闭的。下面给出证明原命题的关键引理：
+ \begin{lemma}
+ 下列条件是等价的：
+ \begin{enumerate}
+     \item 群作用$\gamma$是一般的；
+     \item 对角线 $\Delta=\{(\Bar{x},\Bar{x})\subset X/G\times X/G\}$是闭的；
+     \item 商空间$X/G$是Hausdorff的。
+ \end{enumerate}
+ \end{lemma}
+ \begin{proof}
+ 仅需要证明条件1.与条件2.的等价性。我们考虑群作用$\gamma^{2}:G\times G\rightarrow X\times X$，这个群作用定义为：$\gamma^{2}((g_{1},g_{2}))(x_{1},x_{2})=(\gamma(g_{1})x_{1},\gamma(g_{2})x_{2})$。进而很容易可以看出$(X\times X)/(G\times G)$与$X/G\times X/G$之间存在同态映射。在投射$p^{2}:(X\times X)/(G\times G)$与$X/G\times X/G$作用下， 我们可以得到$(p^{2})^{-1}(\Delta)=R^{\gamma}_{X}$。从而得证。
+ \end{proof}
+ 现在我们可以证明上述命题了：
+\begin{proof}
+群作用$\gamma: H\times G\rightarrow G$定义为$\gamma(h)g=hg$是一般的，由于图 $R^{\gamma}_{G}=\{(g_{1},g_{2})\in G\times G| g_{2}g_{1}^{-1}\in H\}$在$G\times G$中是闭的。
+\end{proof}
+
+\begin{proposition}
+    给定一个$l$群$G$是可数的，并且在$l$空间$X$上作用：$(g,X)\mapsto\gamma(g)x$。我们假设$G$在$X$上的轨道数量是有限。则有一个开轨道$X_{0}\subset X$，并且对于任意一点$x_{0}\in X_{0}$有映射$G\rightarrow X_{0}$定义为$g\mapsto\gamma(g)x_{0}$是开的。（$G$在无穷处可数是指$G$是可数多个紧集的并:$G=\bigcup\limits_{n}K$, 其中$K$是紧集。）
+\end{proposition}
+\begin{proof}
+$N$为$G$的开的紧子群，$\{g_{i}\}(i=1,2,3,...)$为商群$G\ N$的陪集代表元，同时记$x_{1},...,x_{n}$是$l$空间$X$的轨道的代表元。然后$G=\bigcup\limits^{\infty}_{i=1}g_{i}N$，且$X=\bigcup\limits_{i,j}\gamma(g_{i}N)x_{j}$是可数多个紧集的并集。可以验证可得任意一个$l$空间是一个Baire空间，换而言之，$l$空间不可能表示成可数多个无处稠密闭子集的并集。因此有一个$\gamma(g_{i}N)x_{j}$包含一个内点$\gamma(g_{i}n)x_{j}$。但是$x_{j}=\gamma(g_{i}n)^{-1}\gamma(g_{i}n)x_{j}$是$\gamma(N)x_{j}=\gamma(g_{i}n)^{-1}\gamma(g_{i}N)x_{j}$的内点。
+
+从而对于其中的一个点$x_{j}$我们清楚对于任意小的子群$N$成立。因此映射$g\mapsto \gamma(g)x_{j}$是开映射。
+\end{proof}
+\begin{corollary}
+如果一个$l$群$G$是在无穷处可数并且在$l$空间$X$上可传递的作用，则$x_{0}\in X$，$H$是$x_{0}$的稳定子群，从而商群$H\ G$到$l$空间$X$的自然映射：$Hg\mapsto\gamma(g^{-1})x_{0}$是同态映射。
+
+$H$是稳定子群，从而$Hg_{1}=Hg_{1}^{-1}$。
+\end{corollary}
+\subsection{$l$空间上的分布}
+进一步我们定义$l$上的Schwart函数：在拓扑空间$X$上局部常值且有紧支集的复值函数为Schwartz函数。记Schwartz函数组成空间为$S(X)$。将$S(X)$上的线性泛函定义为$X$上的分布。将所有分布组成的空降记为$S^{*}$，注意在之后的分析证明过程中，$S(X)$和$S^{*}(X)$不会赋予任何的拓扑。约定一下记号：$f\in S(X)$和$T\in S^{*}(X)$，则$T$在$f$上的值记为$<T,f>$或者$\int_{X}f(x)\mathbf{d}T(x)$（简写为$\int f\mathbf{d}T$）。若$x_{0}\in X$，那么Dirac分布$\varepsilon_{x_{0}}$定义为$<\varepsilon_{x_{0}},f>=f(x_{0})$。
+
+我们记所有$X$上的局部常值的复值函数空间为$C_{\infty}(X)$。
+
+取$Y$为一个开的，$Z$闭的$l$空间$X$的子集，我们可以定义映射$i_{Y}:S(Y)\rightarrow S(X)$和映射$p_{Z}:S(X)\rightarrow S(Z)$如下：$i_{Y}(f)$是$f$的连续延拓到$Y$外的原点，$P_{Z}(f)$是$f$限制到$Z$上。
+\begin{proposition}
+    序列：$$0\rightarrow S(Y)\xrightarrow{i_{Y}}\ S(X)\xrightarrow{P_{X- Y}}\ S(X\ Y)\rightarrow 0$$
+    是正则的。
+\end{proposition}
+\begin{proof}
+要证明这个命题唯一需要的条件便是：$P_{X-Y}$是满映射。即任意一个$X-Y$上的Schwartz函数都可以连续延拓一个$X$上的Schwartz函数。可由上述引理锝。
+\end{proof}
+\begin{corollary}
+序列的对偶序列:
+$$0\rightarrow S^{*} \xrightarrow{P^{*}_{X-Y}}\ S^{*}(X)\xrightarrow{i^{*}_{Y}}\rightarrow 0$$
+\end{corollary}
+
+\begin{definition}
+我们称一个分布$T\in S^{*}(X)$在一个开集$Y\subset X$等于0，如果$i^{*}_{Y}(T)=0$。
+
+而可以使$T$在$x\in X$任意领域不等于0的点集称之为$T$的支集，记为$\mathbf{supp} T$. 显然支集$\mathbf{supp} T$是闭的。
+
+分布$T$被称之为有限的，如果$\mathbf{supp} T$。我们将所有有限分布组成的空间记为$S^{*}_{c}(X)$。
+\end{definition}
+对于每个$T\in S_{c}^{*}(X)$，我们可以构造一个泛函到$C^{\infty}(X)$。如果$K=\mathbf{supp}T$，那么根据上述提到过的性质，会存在唯一的$T_{0}\in S^{*}(K)$使$P^{*}_{K}(T_{0})=T$。因为$k$使紧集，对于任意$f\in C^{\infty}(X)$，我们得到$p_{K}(f)\in S(K)$，且
+$$\int_{X}f\mathbf{d}T=\int_{K}P_{K}(f)\mathbf{d}T_{0}$$
+给定$E$为一个定义在$\mathcal{C}$上的线性空间。我们将定义在$X$上的、取值在$E$上的局部常值函数全体记为$C^{\infty}(X,E)$，并且将$C^{\infty}(X,E)$对的子空间$S(X,E)$定义为$C^{\infty}(X,E)$中有紧支集的函数全体。通过上述证明过的性质，我们得到$S(X,E)\simeq S(X)\otimes E$。因此对于每一个$T\in S^{*}(E)$，我们可以找到一个对应映射:$S(X,E)\rightarrow E$定义为 $f\circ \xi\mapsto<T,f>\circ \xi$，其中$f\in S(X)$，$\xi\in E$。对于每一个$T\in S^{*}_{c}(X)$按照同样的方式，我们可以构造映射:$C^{\infty}(X,E)\rightarrow E$，$f\mapsto \int_{X}f(x)\mathbf{d}T(x)$，其中$f\in S(X,E)$或者$f\in C^{\infty}(X,E)$。
+
+
+
+
+\subsection{$l$层和定义在$l$层上的分布}
+
+$l$层的定义需要引入更多的数学结构，但是$l$层的概念在之后处理取值不同空间上不同点的向量函数问题时是非常必要的。
+\begin{definition}
+令拓扑空间$X$为$l$空间，一个定义在$X$空间的$l$层，如果对于$x\in X$中都和一个复线性空间$\mathcal{F}_{x}$，且定义一组横截映射的$\mathcal{F}$（横截映射$\phi$是定义上$X$上，对于每一个$x\in X$$\phi\in\mathcal{F}_{x}$），满足以下条件：
+\begin{enumerate}
+    \item 横截映射组$\mathcal{F}$在$\mathbb{C}^{\infty}(X)$中函数的加法，乘法下不变。
+    \item 如果$\phi$是一个横截映射，且其在一个领域和一些$\mathcal{F}$的横截映射一致，则$\phi\in\mathcal{F}$。
+    \item 若$\phi\in \mathcal{F}, x\in X$，则当$\phi(x)=0$，$\phi=0$在$x$的一些领域。
+    \item 对于任意$x\in X$和与之链接的复线性空间$\xi\in \mathcal{F}_{x}$，则存在一个$\phi\in\mathcal{F}$使得$\phi(x)=\xi$。
+\end{enumerate}
+\end{definition}
+$l$层记为$(X,\mathcal{F})$,简记为$\mathcal{F}$。复线性空间$\mathcal{F}_{x}$称之为茎（Stalk）。对于层$\mathcal{F}$中元素，我们称之为横截映射。横截映射的支集$\mathbf{supp}\phi=\{x\in X|\phi(x)\not=0\}$。
+
+和定义$l$空间上的分布的支集一样的思路，我们称一个截面映射$\phi\in 
+\mathcal{F}$为有限的，如果$\mathbf{supp}\phi$是紧的。我们将$(X,\mathcal{F})$中的所有的有限截面映射全体记为$\mathcal{F}_{c}$。根据$l$层的定义，有限截面空间$\mathcal{F}_{c}$是一个定义在Schwartz函数空间$S(X)$上的模，并且$S(X)\circ \mathcal{F}_{c}=\mathcal{F}_{c}$。这个性质很基础地说明了$l$层的结构，它可以被理解为$l$层的另一种定义方式。
+\begin{proposition}
+    令$M$是Schwartz函数空间$S(X)$上的模，且满足$S(X)\circ M=M$。则存在唯一的$l$层$(X,\mathcal{F})$使得$M$作为$S(X)$-模和其有限截面映射空间$\mathcal{F}_{c}$。 
+\end{proposition}
+%-0---------------------------------
+\begin{proof}
+对于每一个$x\in X$我们将$M$中由$f\circ\xi$生成的线性子空间，其中$f\in S(X)$和$\xi\in M$并且要求$f(x)=0$。（一个等价的定义是：$M(x)=\{\xi\in M|\text{对于一些}f\in S(X)，\text{并且}f(x)\not=0,f\circ\xi=0\}$）。
+
+进一步我们可以定义$\mathcal{F}$的茎$\mathcal{F}_{x}$，在$x\in X$，$\mathcal{F}_{x}$定义为$M/ M(x)$。从而$M$中的元素自然的构造截面映射。记$\mathcal{F}$为一组与M中的某些截面映射在每个点的邻域重合的横截映射。1.13中的条件（1）-（4）很明显，并且在第一小节中已证明的结论帮助下很容易验证$\mathcal{F}_{c}=M$。
+
+因此在$X$上定义$l$层和定义一个$S(X)$-模$M$等价，其中要求$S(X)\circ M=M$。
+\end{proof}
+\begin{example}
+\begin{itemize}
+    \item $M=S(X)$。在这种情况下，$\mathcal{F}=C^{\infty}(X)$是局部常值函数层。
+    \item 令$q:X\rightarrow Y$是一个$l$空间之间的连续映射。则根据上述结论$S(X)$可以自然转化为一个$S(Y)$-模，这也定义了一个$Y$上的$l$层$\mathcal{F}$。从而可以得到在$y\in Y$上$l$层的茎$\mathcal{F}_{y}$与$S(q^{-1}y)$同构。
+\end{itemize}
+\end{example}
+在我们定义出了$l$层的基本结构之后，我们按照前边研究$l$空间和$l$群的思路，可以进一步定义出$l$层上的分布，并且分析$l$层上分布的性质。这些在之后
+\begin{definition}
+$(X,\mathcal{F})$是一个$l$层。我们将$\mathcal{F}$上的有限截面映射空间$\mathcal{F}_{c}$上的泛函定义为$l$层$\mathcal{F}$上的分布，我们将$l$层$\mathcal{F}$上的全体分布组成的空间记为$\mathcal{F}^{*}$。
+
+由上述已证明的结论我们可以得到在定义运算乘法为$<fT,\phi>=<T,f\phi>$,其中$T\in \mathcal{F}^{*},\phi\in \mathcal{F}_{c},f\in C^{\infty}(X)$。在这样的运算下，进而确定$\mathcal{F}^{*}$是一个定义在环$C^{\infty}$上的模结构。
+\end{definition}
+
+取定$Y$为了空间$X$上的一个局部闭的子集。我们可以进一步定义一个层$(Y,\mathcal{F})(Y)$，对于其中$\mathcal{F}(Y)$，我们称之为$l$层$\mathcal{F}$限制到$Y$上。限制层$(Y,\mathcal{F}(Y))$上的茎和原来的层$\mathcal{F}$对应的茎重合。$\mathcal{F}(Y)$中包含着截面映射，并且要求这些截面映射在每个$y\in Y$的邻域上重合。从而根据之前已经已证明的结论，可以验证$\mathcal{F}(Y)$的$l$层结构。
+
+令$Y$是一个$X$中的开子集，$Z$是一个$X$中闭的子集。在研究Schwartz空间上的分布同样的方法，构造两个映射$i_{Y}:\mathcal{F}_{c}(Y)\rightarrow\mathcal{F}_{c}(X)$和$p_{Z}:\mathcal{F}_{c}(X)\rightarrow\mathcal{F}_{c}(Z)$，同样这两个映射也都是正则的。通过上述已证明的结论，这件事是同样的方式可以证明的。
+
+\begin{definition}
+有一个$\gamma:X\rightarrow Y$是$l$空间之间的同态映射，借助这个同态映射我们定义一系列的关系。
+
+首先通过$(\gamma f)(y)=f(\gamma)$我们可以定义出 $S(X)\rightarrow S(Y)$ 之间的同构关系。
+
+其外，我们在$l$空间 $X, Y$上定义$l$层结构：$(X,\mathcal{F}),\ (Y,\mathcal{G})$。如果我们要定义$l$层之间的同构：$\gamma；\mathcal{F}\rightarrow\mathcal{G}$
+\end{definition}
+
+
+
+
+
+
+进一步我们可以定义$l$空间之间的同态映射$\gamma:X\rightarrow Y$，若有$(\gamma f)(y)=f(\gamma^{-1}y)(f\in S(X),y\in Y)$，则我们可以得到一个同构映射。这个同构映射$\gamma:\mathcal{F}\rightarrow \mathcal{L}$应该包含两个部分，一个是$X\rightarrow Y$之间的同构映射和一个线性同构。
+
+
+\subsection{Haar测度}
+让我们考虑$l$群$G$在自己上的作用，左平移作用：$\gamma(g)g'=gg'$和右平移作用：$\sigma(g)g'=g'g^{-1}$。
+\begin{proposition}
+    有且仅有一个在左平移作用下不变的分布：$\mu_{G}\in S^{*}(G)$，这样的一个分布满足$\int_{G}f(g_{0}g)\mathbf{d}\mu_{G}(g)=\int_{G}f(g)\mathbf{d}\mu_{G}(g)$，对于所有$f\in S(G)$并且$g_{0}\in G$。同时，我们将分布$\mu_{G}$看作一个正泛函，即要求：$<\mu_{G},f>>0$，其中任一$f\in S(X)$均为非零非负函数。
+    
+    我们将分布$\mu_{G}$是一个（左平移作用下不变）Haar测度。用同样的方式，我们可以定义（右平移作用下不变）的Haar测度$\nu_{G}$。
+\end{proposition}
+对于Haar测度，这样的命题，不仅是它的性质，也是它的定义。
+
+\begin{proof}
+
+\end{proof}
+\end{document}
